@@ -11,5 +11,5 @@ public enum NoteFilterMethods {
 
     ALL,
     DONE,
-    NOT_DONE
+    UNDONE
 }

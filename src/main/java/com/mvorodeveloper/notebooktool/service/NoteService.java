@@ -4,11 +4,12 @@
  */
 package com.mvorodeveloper.notebooktool.service;
 
-import com.mvorodeveloper.notebooktool.entities.Note;
+import java.util.Optional;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort;
 
-import java.util.Optional;
+import com.mvorodeveloper.notebooktool.entities.Note;
 
 /**
  *
@@ -23,7 +24,7 @@ public interface NoteService {
 
     void delete(Integer id);
 
-    Page<Note> findAllOrderByDate(Sort.Direction sort);
+    Page<Note> findAllOrderByDate(Sort sort);
 
-    Page<Note> findAllByStatusOrderByDate(boolean isDone, Sort.Direction sort);
+    Page<Note> findAllByStatusOrderByDate(boolean isDone, Sort sort);
 }

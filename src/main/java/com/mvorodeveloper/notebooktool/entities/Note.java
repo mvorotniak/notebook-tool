@@ -4,8 +4,12 @@
  */
 package com.mvorodeveloper.notebooktool.entities;
 
-import javax.persistence.*;
 import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * Class that corresponds to the 'notes' table of the 'notebook_mysql' MySQL database
@@ -18,23 +22,21 @@ public class Note {
     @GeneratedValue
     private int id;
 
-    @Column(name = "message")
     private String message;
 
-    @Column(name = "createDate")
-    private Date createDate;
-
-    @Column(name = "done")
     private boolean done;
 
-    public Note() {
+    // Spring uses lower snake case by default, which means it uses only lower case letters and separates words
+    // with underscores. Therefore, the `createDate` variable corresponds to the `create_date` column in the database
+    private Date createDate;
 
+    public Note() {
     }
 
     public Note(String message) {
         this.message = message;
-        this.createDate = new Date();
         this.done = false;
+        this.createDate = new Date();
     }
 
     public int getId() {
@@ -49,19 +51,19 @@ public class Note {
         this.message = message;
     }
 
-    public Date getDate() {
-        return createDate;
-    }
-
-    public void setDate(Date createDate) {
-        this.createDate = createDate;
-    }
-
     public boolean isDone() {
         return done;
     }
 
     public void setDone(boolean done) {
         this.done = done;
+    }
+
+    public Date getDate() {
+        return createDate;
+    }
+
+    public void setDate(Date createDate) {
+        this.createDate = createDate;
     }
 }

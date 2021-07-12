@@ -4,24 +4,23 @@
  */
 package com.mvorodeveloper.notebooktool.service;
 
-import com.mvorodeveloper.notebooktool.entities.Note;
-import com.mvorodeveloper.notebooktool.repository.NoteRepository;
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
+import com.mvorodeveloper.notebooktool.entities.Note;
+import com.mvorodeveloper.notebooktool.repository.NoteRepository;
 
 /**
  * Class that performs GET and CRUD operations for the 'notes' table of the 'notebook_mysql' MySQL database
  */
 @Service
 public class NoteServiceImpl implements NoteService {
-
-    private static final String CREATE_DATE = "createDate";
 
     private final NoteRepository noteRepository;
 
@@ -57,14 +56,16 @@ public class NoteServiceImpl implements NoteService {
     }
 
     @Override
-    public Page<Note> findAllOrderByDate(Sort.Direction sortDirection) {
-        List<Note> notes = noteRepository.findAll(Sort.by(sortDirection, CREATE_DATE));
+    public Page<Note> findAllOrderByDate(Sort sort) {
+        List<Note> notes = noteRepository.findAll(sort);
+
         return convertToPage(notes);
     }
 
     @Override
-    public Page<Note> findAllByStatusOrderByDate(boolean isDone, Sort.Direction sortDirection) {
-        List<Note> notes = noteRepository.findAllByStatusOrderByDate(isDone, Sort.by(sortDirection, CREATE_DATE));
+    public Page<Note> findAllByStatusOrderByDate(boolean isDone, Sort sort) {
+        List<Note> notes = noteRepository.findAllByStatusOrderByDate(isDone, sort);
+
         return convertToPage(notes);
     }
 

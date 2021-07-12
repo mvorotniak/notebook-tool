@@ -22,11 +22,11 @@ Build locally:
 mvn clean install
 ```
 
-Run locally:
+Run/Debug configuration in Intellij IDEA:
 
-```bash
-spring-boot:run
-```
+* Configuration type: `Application`
+* Main class: `com.mvorodeveloper.notebooktool.NotebookToolApplication`
+* Working directory: top-level project directory
 
 Documentation
 -------------------------
