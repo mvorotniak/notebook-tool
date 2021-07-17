@@ -9,9 +9,12 @@ target/
 .settings
 .springBeans
 
-### IntelliJ IDEA ###
-.idea
-!.idea/codeStyles/codeStyleConfig.xml
+# IDE - IntelliJ
+/.idea/*
+# Keep the code styles.
+!/.idea/codeStyles
+/.idea/codeStyles/*
+!/.idea/codeStyles/codeStyleConfig.xml
 *.iws
 *.iml
 *.ipr
