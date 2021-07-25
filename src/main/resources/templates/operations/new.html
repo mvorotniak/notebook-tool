@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/head :: head"></head>
 <body>
 <div class="container">
@@ -7,7 +8,7 @@
     <div class="container">
         <form class="form-horizontal" th:action="@{/save}" name="input_form" id="input_form" method="post" role="form">
             <div class="form-group">
-                <input type="text" class="form-control" id="message" th:name="message" placeholder="Enter your note." maxlength="100"/>
+                <input type="text" class="form-control" id="message" th:name="message" placeholder="Enter your note" maxlength="100"/>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>

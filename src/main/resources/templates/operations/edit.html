@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head"></head>
+<body>
+<div class="container">
+    <div th:replace="fragments/header :: header"></div>
+    <div class="container">
+        <form class="form-horizontal" th:action="@{/update}" name="input_form" id="input_form" method="post" role="form">
+
+            <div class="form-group">
+                <span>Updating note with id: <b>[[${note.id}]]</b></span>
+                <input type ="hidden" th:name="id" th:value="${note.id}" />
+            </div>
+
+            <span>Previous Message: [[${note.message}]]</span>
+
+            <div class="form-group">
+                <label for="message">New Message:</label>
+                <input type="text" class="form-control" id="message" th:name="message" placeholder="Enter your note" maxlength="100"/>
+            </div>
+            <div class="form-group">
+                <label for="done">Done:</label>
+                <select class="form-control" id="done" th:name="done">
+                    <option th:value="true">true</option>
+                    <option th:value="false">false</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary" th:name="id" th:value="${note.id}">Submit</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
