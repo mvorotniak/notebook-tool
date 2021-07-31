@@ -5,14 +5,16 @@
     <nav class="navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <h3><a class="navbar-brand" th:href="@{'/filter/{filter}/?sort={sort}' (filter = 'ALL', sort = 'createDate,asc')}">Home</a></h3>
-                <p><a href="#" th:href="@{/new}">New Note</a></p>
-                <p><b>Views</b></p>
-                <ul class="dropdown-menu">
-                    <li><a th:href="@{'/filter/{filter}' (filter = 'ALL')}">All</a></li>
-                    <li><a th:href="@{'/filter/{filter}' (filter = 'DONE')}">Done</a></li>
-                    <li><a th:href="@{'/filter/{filter}' (filter = 'UNDONE')}">Not Done</a></li>
-                </ul>
+                <a class="navbar-brand" th:href="@{'/filter/{filter}/?sort={sort}' (filter = 'ALL', sort = 'createDate,asc')}">Home</a>
+                <a th:href="@{/new}">New Note</a>
+                <div class="dropdown">
+                    <a class="views">Views</a>
+                    <div class="dropdown-content">
+                        <a th:href="@{'/filter/{filter}' (filter = 'ALL')}">All</a>
+                        <a th:href="@{'/filter/{filter}' (filter = 'DONE')}">Done</a>
+                        <a th:href="@{'/filter/{filter}' (filter = 'UNDONE')}">Undone</a>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
