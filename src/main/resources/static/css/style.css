@@ -80,7 +80,7 @@ h2 {
   padding: 1px 0px 30px 0px;
 }
 
-.navbar-header a {
+.navbar-header a, .navbar-header .dropdown a {
   padding: 14px 16px;
   font-size: 17px;
   padding-bottom: 20px;
@@ -91,6 +91,7 @@ h2 {
   text-transform: uppercase;
   letter-spacing: .2rem
 }
+
 .btn-secondary {
   font-size: 13px;
   text-transform: uppercase;
